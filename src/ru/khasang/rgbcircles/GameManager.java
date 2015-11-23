@@ -1,25 +1,53 @@
 package ru.khasang.rgbcircles;
 
+import android.view.View;
+import android.widget.ImageButton;
+
 import java.util.ArrayList;
+import java.util.Timer;
 
 /**
- * Created by Victor on 22.1.15.
+ * Created by Igor on 22.1.15.
+ * Change by Victor on 23.11.15.
  */
 public class GameManager {
     public static final int MAX_CIRCLES = 10;
     private MainCircle mainCircle;
     private ArrayList<EnemyCircle> circles;
-    private CanvasView canvasView;
+    public CanvasView canvasView;
     private static int width;
     private static int height;
+    private NavigationPanel navigationPanel;
+    private ImageButton mStartButton, mCancelButton;
+    private Timer mTimer;
+//    private MyTimerTask mMyTimerTask;
 
     public GameManager(CanvasView canvasView, int w, int h) {
+
         this.canvasView = canvasView;
         width = w;
         height = h;
         initMainCircle();
         initEnemyCircles();
+//        navigationPanel = new NavigationPanel(this);
+
+//        mStartButton = (ImageButton) canvasView.getActivity().findViewById(R.id.imageButtonPlay);
+//        mCancelButton = (ImageButton) this.canvasView.findViewById(R.id.imageButtonPause);
+
+
+//        mCancelButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                if (mTimer != null) {
+//                    mTimer.cancel();
+//                    mTimer = null;
+//                }
+//                gameEnd("YOU stop!");
+//            }
+//        });
     }
+
 
     private void initEnemyCircles() {
         SimpleCircle mainCircleArea = mainCircle.getCircleArea();
@@ -61,7 +89,6 @@ public class GameManager {
 
     public void onTouchEvent(int x, int y) {
         mainCircle.moveMainCircleWhenTouchAt(x, y);
-        checkCollision();
         moveCircles();
     }
 
@@ -95,7 +122,8 @@ public class GameManager {
         canvasView.redraw();
     }
 
-    private void moveCircles() {
+    public void moveCircles() {
+        checkCollision();
         for (EnemyCircle circle : circles) {
             circle.moveOneStep();
         }

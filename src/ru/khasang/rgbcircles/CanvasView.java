@@ -9,7 +9,8 @@ import android.view.*;
 import android.widget.Toast;
 
 /**
- * Created by Victor on 22.11.15.
+ * Created by Igor on 22.11.15.
+ * Change by Victor on 23.11.15.
  */
 public class CanvasView extends View implements ICanvasView{
     private static int width;
@@ -80,9 +81,4 @@ public class CanvasView extends View implements ICanvasView{
         invalidate();
         return true;
     }
-
-    // todo ДЗ
-//    public static int recalculateRadius(int radius) {
-//        return radius * 768 / width < height ? width : height;
-//    }
 }

@@ -5,7 +5,7 @@ import android.graphics.Color;
 import java.util.Random;
 
 /**
- * Created by Victor on 22.11.15.
+ * Created by Igor   on 22.11.15.
  */
 public class EnemyCircle extends SimpleCircle {
 

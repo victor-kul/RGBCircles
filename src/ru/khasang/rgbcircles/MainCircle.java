@@ -3,7 +3,7 @@ package ru.khasang.rgbcircles;
 import android.graphics.Color;
 
 /**
- * Created by Victor on 22.11.15.
+ * Created by Igor on 22.11.15.
  */
 public class MainCircle extends SimpleCircle{
     public static final int INIT_RADIUS = 50;
